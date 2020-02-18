@@ -1,0 +1,10 @@
+.project
+.settings
+.vscode
+.DS_Store
+profile
+bin
+*.log
+*.prof
+*.test
+Makefile
