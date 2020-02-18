@@ -55,3 +55,7 @@ func (t *Token) Validate() error {
 	}
 	return nil
 }
+
+func (t *Token) Parse(tokenString string, validate bool) error {
+	return ParseTokenWithHS256(tokenString, t, validate)
+}

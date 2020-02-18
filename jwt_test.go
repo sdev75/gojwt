@@ -5,16 +5,6 @@ import (
 	"testing"
 )
 
-// func TestParse(t *testing.T) {
-// 	tokenString := `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
-// 	token := &Token{}
-// 	err := ParseTokenWithHS256(tokenString, token)
-// 	if err != nil {
-// 		t.Error(err)
-// 	}
-// 	log.Println(token)
-// }
-
 type CustomClaims struct {
 	Subject  string `json:"sub,omitempty"`
 	Name     string `json:"name,omitempty"`

@@ -17,7 +17,7 @@ func DecodeSegment(seg string) ([]byte, error) {
 	return base64.URLEncoding.DecodeString(seg)
 }
 
-func ParseTokenWithHS256(tokenString string, token *Token) error {
+func ParseTokenWithHS256(tokenString string, token *Token, validate bool) error {
 
 	parts := strings.Split(tokenString, ".")
 	if len(parts) != 3 {
@@ -51,6 +51,13 @@ func ParseTokenWithHS256(tokenString string, token *Token) error {
 	}
 	if method != "HS256" {
 		return errors.New("Unsupported signing algorithm in the header")
+	}
+
+	if validate {
+		err = token.Validate()
+		if err != nil {
+			return err
+		}
 	}
 
 	token.Value = tokenString

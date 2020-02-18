@@ -67,8 +67,8 @@ func (c IanaClaims) Valid() error {
 	now := time.Now().Unix()
 
 	if c.VerifyExpiresAt(now) == false {
-		delta := time.Unix(now, 0).Sub(time.Unix(c.ExpiresAt, 0))
-		err.Text = fmt.Errorf("Token expired by %v", delta)
+		//delta := time.Unix(now, 0).Sub(time.Unix(c.ExpiresAt, 0))
+		err.Text = fmt.Errorf("Token expired")
 		err.Flags |= ErrorInvalidExpiration
 	}
 
