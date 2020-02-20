@@ -57,3 +57,15 @@ func TestIanaClaimsNotBeforeValid(t *testing.T) {
 		t.Errorf("got '%v' want '%v'", got, want)
 	}
 }
+
+func TestParseClaimV1(t *testing.T) {
+	claims := ClaimsV1{
+		CustomField: "Testing",
+	}
+
+	err := claims.Valid()
+	if err.Error() != "CustomField mismatch" {
+		t.Error(err)
+	}
+
+}

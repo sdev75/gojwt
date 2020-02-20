@@ -8,3 +8,4 @@ bin
 *.prof
 *.test
 Makefile
+utils
