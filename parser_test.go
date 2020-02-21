@@ -103,7 +103,7 @@ func TestParseAndValidate(t *testing.T) {
 		"eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ." +
 		"SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 	var token = &Token{Payload: &IanaClaims{}}
-	if err := token.Parse(tokenString, true); err == nil {
-		t.Error("Token is supposed to be invalid / expired...")
+	if err := token.Parse(tokenString, true); err != nil {
+		t.Error("Token is supposed to be valid...")
 	}
 }
