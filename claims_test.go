@@ -29,6 +29,14 @@ func TestIanaClaimsExpired(t *testing.T) {
 	}
 }
 
+func TestIanaClaimsValid(t *testing.T) {
+	claims := new(IanaClaims)
+
+	if got := claims.Valid(); got != nil {
+		t.Errorf("got '%v' want '%v'", got, nil)
+	}
+}
+
 func TestIanaClaimsNotExpired(t *testing.T) {
 	claims := new(IanaClaims)
 	claims.ExpiresAt = time.Now().Add(time.Second * 1).Unix()
